@@ -1,0 +1,209 @@
+/* 
+ * Akado Tech Builder - Estilo Principal
+ * Desenvolvido para o Clã Akado
+ * Sistema Shinobi no Sho
+ */
+
+/* Variáveis e configurações globais */
+:root {
+  --primary-color: #cc0000;
+  --secondary-color: #570909;
+  --text-color: #eeeeee;
+  --background-color: #111111;
+  --input-bg-color: #222222;
+  --input-text-color: #dddddd;
+  --border-radius: 5px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 20px;
+  --font-main: 'Noto Sans', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+/* Estilos base */
+body {
+  font-family: var(--font-main);
+  margin: var(--spacing-lg);
+  background: var(--background-color);
+  color: var(--text-color);
+  background-image: url('../images/background.png');
+  background-size: cover;
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+/* Cabeçalho e logo */
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  margin-right: var(--spacing-md);
+}
+
+h2, h3 {
+  color: var(--primary-color);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Formulário e campos */
+form {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-lg);
+  border-left: 3px solid var(--primary-color);
+}
+
+label {
+  font-weight: bold;
+  margin-top: var(--spacing-md);
+  display: block;
+  color: var(--text-color);
+}
+
+input, select, textarea, button {
+  width: 100%;
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  border: 1px solid #333;
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+  font-family: var(--font-mono);
+}
+
+textarea {
+  height: 200px;
+  resize: vertical;
+}
+
+button {
+  background: var(--secondary-color);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  border: none;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+}
+
+/* Ícones de tipo de técnica */
+.tipo-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Área de resultado */
+.result-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--primary-color);
+}
+
+#markdownOutput {
+  background-color: #1a1a1a;
+  color: #eee;
+  border: 1px solid #333;
+}
+
+/* Botões de ação */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.action-button {
+  flex: 1;
+  padding: 8px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  body {
+    margin: 10px;
+  }
+  
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Notificações */
+.notification {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: var(--border-radius);
+  display: none;
+}
+
+.success {
+  background-color: rgba(40, 167, 69, 0.2);
+  border: 1px solid #28a745;
+}
+
+.error {
+  background-color: rgba(220, 53, 69, 0.2);
+  border: 1px solid #dc3545;
+}
