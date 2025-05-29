@@ -1,19 +1,28 @@
 # 🕷️ Akado Tech Builder
 
-Gerador de técnicas para o sistema *Shinobi no Sho*, com foco em Dokujutsu, Iryō Ninjutsu e venenos.
+**Akado Tech Builder** é uma ferramenta interativa feita para jogadores do sistema **Shinobi no Sho** criarem, documentarem e organizarem técnicas personalizadas — com foco em estilos como **Dokujutsu**, **Iryō Ninjutsu** e **Venefício**.
 
-## Funcionalidades
-
-- Criação de técnicas com campos específicos
-- Cálculo automático de alcance e dificuldade de resistência
-- Geração de Markdown para uso no Obsidian ou Notion
-
-## Como usar
-
-1. Abra `index.html` no navegador
-2. Preencha os campos do formulário
-3. Copie o Markdown gerado e cole onde quiser
+Feito para servir inicialmente ao personagem **Chikatsura Akado**, mas adaptável a qualquer jogador que deseje gerar técnicas complexas e salvá-las em formato Markdown.
 
 ---
 
-Feito para o Clã Akado — mas pode ser adaptado para qualquer estilo de jogador do Shinobi no Sho.
+## 💡 Funcionalidades
+
+- ✅ Interface leve, responsiva e offline (pode usar no navegador local)
+- 🧪 Campos interativos para todos os dados de uma técnica
+- 🎯 Cálculo automático de:
+  - Alcance com base no nível de Venefício
+  - Dificuldade de Resistência (8 + Venefício)
+- 📝 Saída em **Markdown pronta** para uso em:
+  - Obsidian
+  - Notion
+  - Discord
+  - Documentos PDF ou ficha impressa
+
+---
+
+## 🧰 Como usar
+
+1. Baixe ou clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/akado-tech-builder.git
