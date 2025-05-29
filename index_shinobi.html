@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shinobi no Sho - Gerador Expandido</title>
+  <link rel="stylesheet" href="assets/css/shinobi_style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <img src="assets/images/shinobi_logo.png" alt="Shinobi no Sho Logo" class="logo">
+      <h1 class="site-title">Shinobi no Sho</h1>
+    </div>
+    <nav class="nav-tabs">
+      <div class="nav-tab active" data-tab="technique">Técnicas</div>
+      <div class="nav-tab" data-tab="character">Personagens</div>
+      <div class="nav-tab" data-tab="poison">Venenos</div>
+      <div class="nav-tab" data-tab="library">Biblioteca</div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Módulo de Técnicas -->
+    <section id="technique-tab" class="tab-content active">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Gerador de Técnicas</h2>
+          <div>
+            <button class="btn btn-outline" id="save-technique">Salvar</button>
+            <button class="btn btn-outline" id="load-technique">Carregar</button>
+          </div>
+        </div>
+        
+        <form id="technique-form">
+          <div class="grid grid-2">
+            <div class="form-group">
+              <label for="technique-name">Nome da Técnica:</label>
+              <input type="text" id="technique-name" placeholder="Ex: Katon: Goukakyuu no Jutsu">
+            </div>
+            
+            <div class="form-group">
+              <label for="technique-element">Elemento:</label>
+              <select id="technique-element">
+                <option value="ninpou">Ninpou (Neutro)</option>
+                <option value="katon">Katon (Fogo)</option>
+                <option value="suiton">Suiton (Água)</option>
+                <option value="doton">Doton (Terra)</option>
+                <option value="fuuton">Fuuton (Vento)</option>
+                <option value="raiton">Raiton (Raio)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="grid grid-3">
+            <div class="form-group">
+              <label for="technique-level">Nível do Efeito:</label>
+              <select id="technique-level">
+                <option value="1">Nível 1</option>
+                <option value="2">Nível 2</option>
+                <option value="3">Nível 3</option>
+                <option value="4">Nível 4</option>
+                <option value="5">Nível 5</option>
+                <option value="6">Nível 6</option>
+                <option value="7">Nível 7</option>
+                <option value="8">Nível 8</option>
+                <option value="9">Nível 9</option>
+                <option value="10">Nível 10</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="technique-effect">Efeito Base:</label>
+              <select id="technique-effect">
+                <option value="">Selecione o nível primeiro</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="technique-power">Poder (Ninjutsu):</label>
+              <input type="number" id="technique-power" min="1" max="10" value="1">
+            </div>
+          </div>
+          
+          <div class="grid grid-2">
+            <div class="form-group">
+              <label for="technique-action">Ação:</label>
+              <select id="technique-action">
+                <option value="padrao">Padrão</option>
+                <option value="movimento">Movimento</option>
+                <option value="completa">Completa</option>
+                <option value="reacao">Reação</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="technique-area">Área de Efeito:</label>
+              <select id="technique-area">
+                <option value="alvo">Alvo único</option>
+                <option value="linha">Linha</option>
+                <option value="cone">Cone</option>
+                <option value="esfera">Esfera</option>
+                <option value="onda">Onda</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="technique-description">Descrição Narrativa:</label>
+            <textarea id="technique-description" rows="4" placeholder="Descreva como a técnica se manifesta visualmente, quais sensações causa, etc."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <button type="button" id="generate-technique" class="btn btn-primary">Gerar Técnica</button>
+          </div>
+        </form>
+      </div>
+      
+      <div class="result-container">
+        <div class="result-header">
+          <h3 class="result-title">Técnica Gerada</h3>
+          <div>
+            <button class="btn btn-outline" id="copy-technique">Copiar</button>
+            <button class="btn btn-outline" id="export-technique">Exportar</button>
+          </div>
+        </div>
+        
+        <div class="technique-preview">
+          <h3 class="technique-name" id="preview-name">Nome da Técnica</h3>
+          
+          <div class="technique-meta">
+            <span class="element-badge element-katon" id="preview-element">Katon</span>
+            <span id="preview-level">Nível 1</span>
+          </div>
+          
+          <div class="technique-stats">
+            <div class="stat-item">
+              <span class="stat-label">Ação:</span>
+              <span class="stat-value" id="preview-action">Padrão</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Alcance:</span>
+              <span class="stat-value" id="preview-range">10m</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Área:</span>
+              <span class="stat-value" id="preview-area">Alvo único</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Dano:</span>
+              <span class="stat-value" id="preview-damage">1d8+2</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Custo (PM):</span>
+              <span class="stat-value" id="preview-cost">3</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Duração:</span>
+              <span class="stat-value" id="preview-duration">Instantânea</span>
+            </div>
+          </div>
+          
+          <div class="technique-description" id="preview-description">
+            Descrição narrativa da técnica aparecerá aqui.
+          </div>
+        </div>
+        
+        <div class="result-content" id="markdown-output">
+# Técnica: Nome da Técnica
+
+**Elemento:** Katon (Fogo)  
+**Nível:** 1  
+**Ação:** Padrão  
+**Alcance:** 10m  
+**Área:** Alvo único  
+**Dano:** 1d8+2  
+**Custo (PM):** 3  
+**Duração:** Instantânea  
+
+## Descrição
+Descrição narrativa da técnica aparecerá aqui.
+        </div>
+      </div>
+    </section>
+    
+    <!-- Módulo de Personagens -->
+    <section id="character-tab" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Criação de Personagem</h2>
+          <div>
+            <button class="btn btn-outline">Salvar</button>
+            <button class="btn btn-outline">Carregar</button>
+          </div>
+        </div>
+        
+        <p>Módulo de criação de personagens em desenvolvimento...</p>
+      </div>
+    </section>
+    
+    <!-- Módulo de Venenos -->
+    <section id="poison-tab" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Criação de Venenos</h2>
+          <div>
+            <button class="btn btn-outline">Salvar</button>
+            <button class="btn btn-outline">Carregar</button>
+          </div>
+        </div>
+        
+        <p>Módulo de criação de venenos em desenvolvimento...</p>
+      </div>
+    </section>
+    
+    <!-- Biblioteca de Referência -->
+    <section id="library-tab" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Biblioteca de Referência</h2>
+        </div>
+        
+        <p>Biblioteca de referência em desenvolvimento...</p>
+      </div>
+    </section>
+  </main>
+  
+  <div class="notification" id="notification">
+    Notificação de exemplo
+  </div>
+
+  <script src="assets/js/shinobi_data.js"></script>
+  <script src="assets/js/shinobi_main.js"></script>
+</body>
+</html>
